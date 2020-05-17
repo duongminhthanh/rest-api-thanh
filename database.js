@@ -36,7 +36,7 @@ const createCat = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(201).send(`Cat added with ID: ${result.insertId}`)
+      response.status(201).send(`Cat added `)
     })
 }
 const updateCat = (request, response) => {
