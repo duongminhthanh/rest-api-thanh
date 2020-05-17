@@ -30,9 +30,9 @@ const getCatById = (request, response) => {
 }
 
 const createCat = (request, response) => {
-    const { name, price } = request.body
+    const { cat_name, price } = request.body
   
-    pool.query('INSERT INTO cat_categories (name, price) VALUES ($1, $2)', [name, price], (error, results) => {
+    pool.query('INSERT INTO cat_categories (name, price) VALUES ($1, $2)', [cat_name, price], (error, results) => {
       if (error) {
         throw error
       }
@@ -41,11 +41,11 @@ const createCat = (request, response) => {
 }
 const updateCat = (request, response) => {
     const id = parseInt(request.params.id)
-    const { name, price } = request.body
+    const { cat_name, price } = request.body
   
     pool.query(
-      'UPDATE cat_categories SET name = $1, price = $2 WHERE id = $3',
-      [name, price, id],
+      'UPDATE cat_categories SET cat_name = $1, price = $2 WHERE id = $3',
+      [cat_name, price, id],
       (error, results) => {
         if (error) {
           throw error
