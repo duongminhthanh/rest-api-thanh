@@ -32,7 +32,7 @@ const getCatById = (request, response) => {
 const createCat = (request, response) => {
     const { cat_name, price } = request.body
   
-    pool.query('INSERT INTO cat_categories (name, price) VALUES ($1, $2)', [cat_name, price], (error, results) => {
+    pool.query('INSERT INTO cat_categories (cat_name, price) VALUES ($1, $2)', [cat_name, price], (error, results) => {
       if (error) {
         throw error
       }
